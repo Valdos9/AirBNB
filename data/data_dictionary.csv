@@ -1,0 +1,10 @@
+raw_variable,meaning,notes,clean_variable
+id,Listing identifier,Text; preserve all digits; do not convert to floating point,listing_id
+last_scraped,Date listing was collected,YYYY-MM-DD; parse with ymd; snapshot contains two scrape dates,snapshot_date
+neighbourhood_cleansed,Source-assigned neighborhood,Trim/squish spaces; retain names; no geospatial processing required,neighbourhood
+room_type,Accommodation category,Lowercase and squish whitespace; use specified factor levels,room_type
+accommodates,Maximum guest capacity,Parse numeric; nonpositive values become NA,accommodates
+price,Reported daily listing price in local currency (USD for Boston),Parse currency strings; nonpositive values become NA; not a guaranteed all-in booking quote,price_usd
+minimum_nights,Listed minimum stay in nights,Parse numeric; nonpositive values become NA; actual calendar rules may differ,minimum_nights
+last_review,Date of latest recorded review,Parse with ymd; keep missing values; do not exclude just for no review date,last_review
+number_of_reviews,Recorded review count,Parse numeric; zero is valid; reviews are not bookings,number_of_reviews

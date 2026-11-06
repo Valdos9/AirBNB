@@ -1,0 +1,130 @@
+---
+title: "Boston on a Budget"
+subtitle: "STT303 Project 2 · Real Airbnb data · Teams of 2–3"
+author: "TEAM ID — MEMBER 1, MEMBER 2, MEMBER 3 (if applicable)"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE,
+                     fig.width=8, fig.height=4.5)
+source("analysis.R")
+```
+
+## 1. Cleaning, validation and study scope
+
+Explain string/factor/date operations, missingness, sequential exclusions and validation. State why this is a filtered snapshot rather than a random sample of all Boston lodging.
+
+**Replace this prompt with your response.**
+
+```{r section1}
+# Uncomment as you complete analysis.R.
+# cleaning_audit
+```
+
+## 2. Exploring the budget listings
+
+Discuss shape, mean/median, unusual values, room-type differences and review status. Explain the $500 cutoff and why reviews do not directly measure demand.
+
+**Replace this prompt with your response.**
+
+```{r section2}
+# Uncomment as you complete analysis.R.
+# room_summary
+# review_summary
+# plot_price
+# plot_room
+# plot_capacity
+```
+
+## 3. Guest capacity and listed price
+
+Write the equation and interpret slope, intercept, the four-guest prediction and the first residual. Discuss residual structure and causality.
+
+**Replace this prompt with your response.**
+
+```{r section3}
+# Uncomment as you complete analysis.R.
+# capacity_cor
+# capacity_terms
+# capacity_predictions
+# head(capacity_augmented, 1)
+# plot_residual
+```
+
+## 4. Private rooms versus entire places
+
+Interpret the reference mean and difference. Demonstrate equality to group means and explain why this comparison is unadjusted.
+
+**Replace this prompt with your response.**
+
+```{r section4}
+# Uncomment as you complete analysis.R.
+# room_terms
+# room_predictions
+```
+
+## 5. Sampling variability
+
+Compare centers and spreads, individual-price SD and sample-mean SD. Explain the seed, sampling design and limited population.
+
+**Replace this prompt with your response.**
+
+```{r section5}
+# Uncomment as you complete analysis.R.
+# population_mean
+# sampling_summary
+# plot_sampling
+```
+
+## 6. Traveler briefing
+
+Give two evidence-based takeaways and two limitations. Address reported prices versus actual booking costs.
+
+**Replace this prompt with your response.**
+
+## Team contributions and verification
+
+Team ID: **REPLACE**  
+Members (2 or 3): **REPLACE**  
+Designated submitter: **REPLACE**
+
+Complete one row per member; remove the third row for a two-person team.
+Each member must contribute to analysis, interpretation, and peer review.
+
+| Member | R analysis contributed | Written interpretation contributed | Work reviewed and one concrete finding/check |
+|:--|:--|:--|:--|
+| Member 1 | Replace | Replace | Replace |
+| Member 2 | Replace | Replace | Replace |
+| Member 3 (if applicable) | Replace | Replace | Replace |
+
+- Final integrator: **REPLACE**
+- Fresh-session verifier (a different member): **REPLACE**
+- Verification date and result of running analysis.R and knitting the report: **REPLACE**
+- Confirmation that all members reviewed and approved the complete submission: **REPLACE**
+
+This section does not count toward the 900–1,300-word report limit.
+
+## Data attribution
+
+Data from [Inside Airbnb](https://insideairbnb.com/get-the-data/), Boston snapshot
+September 19, 2026, used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Adapted for STT303 by selecting nine columns; all source rows and values retained.
+Analysis filters are documented above. See data/PROVENANCE.txt for the pinned source.
+
+## Session information
+
+```{r}
+sessionInfo()
+```
+
+## Analysis code appendix
+
+```{r full-code, code=readLines("analysis.R"), eval=FALSE, echo=TRUE}
+```

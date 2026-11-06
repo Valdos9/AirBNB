@@ -1,0 +1,32 @@
+REAL DATA — INSIDE AIRBNB, BOSTON
+Provider: Inside Airbnb (independent of Airbnb).
+Snapshot directory date: 2026-09-19. Listing scrape dates: 2026-09-19 and 2026-09-20.
+Downloaded for this project: 2026-11-01.
+Source: https://data.insideairbnb.com/united-states/ma/boston/2026-09-19/data/listings.csv.gz
+Landing page: https://insideairbnb.com/get-the-data/
+Dictionary: https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit
+Assumptions: https://insideairbnb.com/data-assumptions/
+License: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+Attribution: Contains information from Inside Airbnb, Boston September 2026
+snapshot, used under CC BY 4.0. Adapted for STT303 by selecting nine columns.
+Inside Airbnb does not endorse this course project.
+
+PREPARATION
+All 4368 source rows retained in original order. Nine columns selected;
+other columns omitted. Values were not imputed, altered, dirtied or synthesized.
+CSV quoting/newlines reserialized using Python's CSV writer. Empty source cells
+remain empty. The provided file is a column subset, not a random row sample.
+Student cleaning and eligibility rules are specified in Project_Instructions.html.
+Only those student rules produce the budget-focused analysis dataset.
+Source gzip SHA-256: 961472e727bbe121b5138637602f323467a160b81d2d5674bc422e6ebd28e89b
+Distributed CSV SHA-256: 2050ac68a25b4115333ed01830d1292a962cdb67f833d05e32f49ce4f0a5ee21
+
+INTERPRETATION
+One row describes a listing, not a booking, guest or host. Price is the reported
+listing price, not realized revenue or a verified total for your travel dates.
+Prices and availability can change; these are historical snapshot data.
+Minimum-night rules alone do not establish availability for a seven-night trip.
+Missing review dates do not imply zero quality, occupancy or demand.
+The simulation treats the filtered file as a finite teaching population;
+it does not establish representativeness of Boston's lodging market.
