@@ -17,6 +17,7 @@ listings_raw <- read.csv(here::here("data", "boston_listings_raw.csv"), colClass
 listings_clean <- tibble(
   listing_id = listings_raw$id,
   snapshot_date = listings_raw$last_scraped,
+  neighborhood = listings_raw$neighbourhood_cleansed,
   room_type = listings_raw$room_type,
   accomodates = listings_raw$accommodates,
   price_usd = listings_raw$price,
@@ -24,6 +25,8 @@ listings_clean <- tibble(
   last_review = listings_raw$last_review,
   number_of_reviews = listings_raw$number_of_reviews
 )
+
+
 # 2. Create room_summary, review_summary, plot_price, plot_room, plot_capacity.
 
 # 3. Create capacity_cor, capacity_model, capacity_terms, capacity_augmented,
