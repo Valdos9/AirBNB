@@ -16,16 +16,22 @@ library(broom)
 listings_raw <- read.csv(here::here("data", "boston_listings_raw.csv"), colClasses = 'character') |> distinct()
 listings_clean <- tibble(
   listing_id = listings_raw$id,
-  snapshot_date = listings_raw$last_scraped,
-  neighborhood = listings_raw$neighbourhood_cleansed,
-  room_type = listings_raw$room_type,
+  snapshot_date = listings_raw$last_scraped |> 
+    ymd(),
+  neighborhood = listings_raw$neighbourhood_cleansed |> 
+    str_squish(),
+  room_type = listings_raw$room_type |> 
+    str_squish() |> 
+    str_to_lower(),
   accomodates = listings_raw$accommodates,
-  price_usd = listings_raw$price,
+  price_usd = listings_raw$price |> 
+    str_extract("\\d+\\.\\d+"),
   minimum_nights = listings_raw$minimum_nights,
-  last_review = listings_raw$last_review,
+  last_review = listings_raw$last_review |> 
+    ymd(),
   number_of_reviews = listings_raw$number_of_reviews
 )
-
+  
 
 # 2. Create room_summary, review_summary, plot_price, plot_room, plot_capacity.
 
