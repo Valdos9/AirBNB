@@ -15,23 +15,67 @@ library(broom)
 # Hint: as.numeric(snapshot_date - last_review) gives a difference in days.
 listings_raw <- read.csv(here::here("data", "boston_listings_raw.csv"), colClasses = 'character') |> distinct()
 listings_clean <- tibble(
+  #Complete ID maintained
   listing_id = listings_raw$id,
+  #Parses Listing date in YYYY-MM-DD
   snapshot_date = listings_raw$last_scraped |> 
     ymd(),
+  #Squishes the neighborhood names to remove surrounding whitespace and reduce whitespace between words
   neighborhood = listings_raw$neighbourhood_cleansed |> 
     str_squish(),
+  #Squishes the listings types, turns the letters into lowercase, and as an unordered factor
   room_type = listings_raw$room_type |> 
     str_squish() |> 
-    str_to_lower(),
-  accomodates = listings_raw$accommodates,
+    str_to_lower() |> 
+    factor(
+      levels = c(
+        "private room",
+        "entire home/apt",
+        "shared room",
+        "hotel room"
+      ),
+      ordered = FALSE
+    ),
+  #Parses the capacity into ints
+  accomodates = listings_raw$accommodates |> 
+    as.numeric(),
+  accomodates = if_else(accomodates <= 0, NA, accomodates),
+  #Parses the price into ints
   price_usd = listings_raw$price |> 
-    str_extract("\\d+\\.\\d+"),
-  minimum_nights = listings_raw$minimum_nights,
+    str_extract("\\d+\\.\\d+") |> 
+    as.numeric(),
+  price_usd = if_else(price_usd <= 0, NA, price_usd),
+  #Parses the nights into ints
+  minimum_nights = listings_raw$minimum_nights |> 
+    as.numeric(),
+  minimum_nights = if_else(minimum_nights <= 0, NA, minimum_nights),
+  #Parses review date in YYYY-MM-DD
   last_review = listings_raw$last_review |> 
     ymd(),
-  number_of_reviews = listings_raw$number_of_reviews
+  #Parses the number of reviews into ints
+  number_of_reviews = listings_raw$number_of_reviews |> 
+    as.numeric()
 )
-  
+
+listings_clean <- listings_clean |> 
+  mutate(
+    days_since_review = as.numeric(snapshot_date - last_review),
+    review_status = case_when(
+      is.na(last_review) ~ "no review date",
+      days_since_review >= 0 & days_since_review <= 180 ~ "recent",
+      days_since_review > 180 ~ "older",
+      .default = NA
+    ) |> 
+      factor(
+        levels = c(
+          "recent",
+          "older",
+          "no review date"
+        ),
+        ordered = FALSE
+      )
+  )
+
 
 # 2. Create room_summary, review_summary, plot_price, plot_room, plot_capacity.
 
