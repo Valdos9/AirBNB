@@ -1,7 +1,7 @@
 ---
 title: "Boston on a Budget"
 subtitle: "STT303 Project 2 · Real Airbnb data · Teams of 2–3"
-author: "TEAM ID — MEMBER 1, MEMBER 2, MEMBER 3 (if applicable)"
+author: "JOPE — Osvaldo Perez-Eslava"
 output:
   html_document:
     toc: true
@@ -21,11 +21,10 @@ source("analysis.R")
 
 Explain string/factor/date operations, missingness, sequential exclusions and validation. State why this is a filtered snapshot rather than a random sample of all Boston lodging.
 
-**Replace this prompt with your response.**
+**The string**
 
 ```{r section1}
-# Uncomment as you complete analysis.R.
-# cleaning_audit
+cleaning_audit
 ```
 
 ## 2. Exploring the budget listings
@@ -35,12 +34,11 @@ Discuss shape, mean/median, unusual values, room-type differences and review sta
 **Replace this prompt with your response.**
 
 ```{r section2}
-# Uncomment as you complete analysis.R.
-# room_summary
-# review_summary
-# plot_price
-# plot_room
-# plot_capacity
+ room_summary
+ review_summary
+ plot_price
+ plot_room
+ plot_capacity
 ```
 
 ## 3. Guest capacity and listed price
@@ -50,12 +48,11 @@ Write the equation and interpret slope, intercept, the four-guest prediction and
 **Replace this prompt with your response.**
 
 ```{r section3}
-# Uncomment as you complete analysis.R.
-# capacity_cor
-# capacity_terms
-# capacity_predictions
-# head(capacity_augmented, 1)
-# plot_residual
+ capacity_cor
+ capacity_terms
+ capacity_predictions
+ head(capacity_augmented, 1)
+ plot_residual
 ```
 
 ## 4. Private rooms versus entire places
@@ -65,9 +62,8 @@ Interpret the reference mean and difference. Demonstrate equality to group means
 **Replace this prompt with your response.**
 
 ```{r section4}
-# Uncomment as you complete analysis.R.
-# room_terms
-# room_predictions
+ room_terms
+ room_predictions
 ```
 
 ## 5. Sampling variability
@@ -77,10 +73,9 @@ Compare centers and spreads, individual-price SD and sample-mean SD. Explain the
 **Replace this prompt with your response.**
 
 ```{r section5}
-# Uncomment as you complete analysis.R.
-# population_mean
-# sampling_summary
-# plot_sampling
+ population_mean
+ sampling_summary
+ plot_sampling
 ```
 
 ## 6. Traveler briefing
@@ -91,23 +86,23 @@ Give two evidence-based takeaways and two limitations. Address reported prices v
 
 ## Team contributions and verification
 
-Team ID: **REPLACE**  
-Members (2 or 3): **REPLACE**  
-Designated submitter: **REPLACE**
+Team ID: **JOPE**  
+Members (2 or 3): **Osvaldo Perez-Eslava, Myself, I**  
+Designated submitter: **Osvaldo Perez-Eslava**
 
 Complete one row per member; remove the third row for a two-person team.
 Each member must contribute to analysis, interpretation, and peer review.
 
 | Member | R analysis contributed | Written interpretation contributed | Work reviewed and one concrete finding/check |
 |:--|:--|:--|:--|
-| Member 1 | Replace | Replace | Replace |
-| Member 2 | Replace | Replace | Replace |
-| Member 3 (if applicable) | Replace | Replace | Replace |
+| Osvaldo | All | All | All |
+| Jose | Very Little | Very Little | None |
+| Myself | Nothing | Nada | Zilch |
 
-- Final integrator: **REPLACE**
-- Fresh-session verifier (a different member): **REPLACE**
-- Verification date and result of running analysis.R and knitting the report: **REPLACE**
-- Confirmation that all members reviewed and approved the complete submission: **REPLACE**
+- Final integrator: **Osvaldo Perez-Eslava**
+- Fresh-session verifier (a different member): **Osvaldo Perez-Eslava**
+- Verification date and result of running analysis.R and knitting the report: **Osvaldo Perez-Eslava**
+- Confirmation that all members reviewed and approved the complete submission: **Osvaldo Perez-Eslava**
 
 This section does not count toward the 900–1,300-word report limit.
 

@@ -133,6 +133,7 @@ sum(duplicated(analysis_data$listing_id))
 range(analysis_data$snapshot_date, na.rm = TRUE)
 
 range(analysis_data$last_review, na.rm = TRUE)
+
 unique(analysis_data$room_type)
 
 unique(analysis_data$review_status)
@@ -231,12 +232,6 @@ plot_capacity <- ggplot(
   ) +
   theme_minimal()
 
-###
-#'Compare mean and median, shape and spread, room categories and review-status groups.
-#'Identify an unusual observation or explain the visible tail; do not label it a data error without evidence.
-#'Explain why missing review dates and review recency cannot directly measure demand.
-#'Mention the upper-price cutoff when interpreting the distribution.
-###
 
 # 3. Create capacity_cor, capacity_model, capacity_terms, capacity_augmented,
 # capacity_predictions, plot_residual.
@@ -294,14 +289,6 @@ plot_residual <- ggplot(
     labels = scales::label_dollar()
   ) +
   theme_minimal()
-
-#'Write the fitted equation.
-#'Interpret slope and intercept in context; is zero capacity observed?
-#'Explain the four-guest prediction as an estimated mean listed price for listings of that capacity, not a guaranteed booking quote.
-#'For the first analysis_data row, interpret observed price, fitted price and residual.
-#'Assess the residual plot, including the repeated capacity values and $500 cutoff.
-#'Explain why the association is not evidence that increasing a property’s guest limit causes its price to rise by the estimated slope.
-#Y = 
 
 
 # 4. Create room_model, room_terms and room_predictions.
@@ -419,10 +406,6 @@ plot_sampling <- ggplot(
   ) +
   theme_minimal()
 
-#'Produce (5) faceted histograms of the sample means with shared axes, binwidth $5, and a vertical line at population_mean. 
-#'Compare centers and spreads, distinguish individual-price SD from sample-mean SD, and explain what a seed does. 
-#'Explain why this exercise describes variability within the filtered snapshot, not uncertainty about all Boston listings or future prices. 
-#'This is repeated sampling without replacement, not bootstrap resampling.
 
 
 # Write interpretation and team verification in project2.Rmd.
