@@ -21,7 +21,7 @@ source("analysis.R")
 
 Explain string/factor/date operations, missingness, sequential exclusions and validation. State why this is a filtered snapshot rather than a random sample of all Boston lodging.
 
-**The string**
+**One of the string operations used was str_squish(), str_to_lower, and str_extract. For the first two operations, they were used to clean room_type by removing the white space surrounding the words and reducing the spaces within the words then later have a letters lowercase so there is one consistent format rather random sets of uppercase and lowercase. For extract, that was used for price_usd to retrieve the complete number without the  **
 
 ```{r section1}
 cleaning_audit

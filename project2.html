@@ -1581,7 +1581,13 @@ border-radius: 0px;
 <p>Explain string/factor/date operations, missingness, sequential
 exclusions and validation. State why this is a filtered snapshot rather
 than a random sample of all Boston lodging.</p>
-<p><strong>The string</strong></p>
+<p><strong>One of the string operations used was str_squish(),
+str_to_lower, and str_extract. For the first two operations, they were
+used to clean room_type by removing the white space surrounding the
+words and reducing the spaces within the words then later have a letters
+lowercase so there is one consistent format rather random sets of
+uppercase and lowercase. For extract, that was used for price_usd to
+retrieve the complete number without the </strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>cleaning_audit</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   `raw_rows &lt;- nrow(listings_raw)` duplicate_rows &lt;- ra…¹ clean_rows &lt;- nrow(l…²
