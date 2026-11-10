@@ -21,7 +21,7 @@ source("analysis.R")
 
 Explain string/factor/date operations, missingness, sequential exclusions and validation. State why this is a filtered snapshot rather than a random sample of all Boston lodging.
 
-**One of the string operations used was str_squish(), str_to_lower, and str_extract. For the first two operations, they were used to clean room_type by removing the white space surrounding the words and reducing the spaces within the words then later have a letters lowercase so there is one consistent format rather random sets of uppercase and lowercase. For extract, that was used for price_usd to retrieve the complete number without the  **
+**The string, factor, and date operations were used to help clean the entirety of the data set that shares a common format between entries with similar values. Missingness focus on entries that are unavailable to view or obtain. Simply because it doesn't exist or an error in retrieving the data, they data with the missing entry is still valuable, thus it must be accounted for or at least preserved for operation. Sequential exclusions work with missingness as when looking for one exclusive data point, the entries with that data missing can be excluded with case by case iteration. This could later be used to iterate each desired data entry to the point that every entry in the set is complete. Validation is used to check and confirm that the entries have no missing data points for plotting, data analysis, and predictions for adding new entries. This is a filtered snapshot of the Boston lodging for the data given is only a set number of listings released on the 19th and 20th of September, 2026, ignoring any past lodgings from that timeframe.**
 
 ```{r section1}
 cleaning_audit
@@ -31,7 +31,7 @@ cleaning_audit
 
 Discuss shape, mean/median, unusual values, room-type differences and review status. Explain the $500 cutoff and why reviews do not directly measure demand.
 
-**Replace this prompt with your response.**
+**The shape resulting from plot_price gives a bell curve shape, similar to a Normal distribution bell curve. The majority of the price points falling between $160 and $300. The mean and median given for both types of rooms fall as the ranges of this data, with a private having a mean of 179 and median of 164 and an entire home/apt on the opposite side with a mean of 306 and median of 296. An unsual value found in the boxplot revolves around entry 1750145022684614782, an entire home/apt type room in the South End neighborhood valuing at $15.7 a night, nearly 20 times less than both the median and mean of similar room types. In terms of reviews, the majority of the reviews are recent, or within 6 month time frame. The average of these reviews fall to a 267 mean price point. For small set of data with listings with reviews older than 6 months or none at all, the price point swing to both cheaper and expensive respectively, with older reviews having a mean price of 235 and listings without reviews being much more expensive with a mean price of 289. The 500 dollar cutoff is used in part because of the private room type as the majority of the price points for each entry fall below the 500 cutoff, the entire home/apt type has a range from 30-1000 dollars with little spread between each value. The reviews itself don't measure demand as they rely on responses from users following their stay. while some listings may have more reviews than others and could be correlated to being more popular, there will be a group of users that don't leave reviews of their experience at a listing.**
 
 ```{r section2}
  room_summary
@@ -45,7 +45,7 @@ Discuss shape, mean/median, unusual values, room-type differences and review sta
 
 Write the equation and interpret slope, intercept, the four-guest prediction and the first residual. Discuss residual structure and causality.
 
-**Replace this prompt with your response.**
+**Y = 178.87 + 30.89X \n For the slope, as the number of guests the room can accommodate increases by one, the price per night in USD increases by a value of 30.89. The intercept is the typical starting value of the room where a hypothetical room that can accommodate 0 guests is valued at a price of 178.87 USD per night. With those two in mind, the predicted price for a 4 person accommodation would be 302.43. This value is a prediction and not the true value for such accommodation as the only variable that was accounted for the estimation is the number of guests. **
 
 ```{r section3}
  capacity_cor
@@ -82,7 +82,7 @@ Compare centers and spreads, individual-price SD and sample-mean SD. Explain the
 
 Give two evidence-based takeaways and two limitations. Address reported prices versus actual booking costs.
 
-**Replace this prompt with your response.**
+**One of the takeaways from this data would be .Two limitations from this data set are given price points and the **
 
 ## Team contributions and verification
 

@@ -94,7 +94,7 @@ complete_data <- listings_clean |>
     !is.na(snapshot_date))
 
 room_data <- complete_data |>
-  filter(room_type %in% c("private room", "entire home/apt"))
+  filter(room_type == "private room" | room_type == "entire home/apt")
 
 capacity_data <- room_data |>
   filter(accommodates >= 1, accommodates <= 6)
@@ -181,31 +181,15 @@ plot_price <- ggplot(analysis_data, aes(x = price_usd)) +
   geom_histogram(
     binwidth = 25,
     fill = "steelblue",
-    color = "white"
-  ) +
-  labs(
-    title = "Distribution of Airbnb Nightly Prices",
-    x = "Price (USD per night)",
-    y = "Number of Listings"
-  ) +
-  scale_x_continuous(
-    labels = scales::label_dollar()
+    color = "black"
   ) +
   theme_minimal()
 
 plot_room <- ggplot(analysis_data, aes(x = room_type, y = price_usd)) +
   geom_boxplot(
-    fill = "lightblue",
-    color = "black"
+    fill = "steelblue"
   ) +
-  labs(
-    title = "Nightly Prices by Room Type",
-    x = "Room Type",
-    y = "Price (USD per night)"
-  ) +
-  scale_y_continuous(
-    labels = scales::label_dollar()
-  ) +
+  coord_flip() +
   theme_minimal()
 
 plot_capacity <- ggplot(
@@ -216,19 +200,15 @@ plot_capacity <- ggplot(
     alpha = 0.4,
     color = "steelblue"
   ) +
+  labs(
+    x = "Guests",
+    y = "USD per Night"
+  ) +
   geom_smooth(
     method = "lm",
     formula = y ~ x,
     se = FALSE,
     color = "red"
-  ) +
-  labs(
-    title = "Guest Capacity versus Nightly Price",
-    x = "Capacity (guests)",
-    y = "Price (USD per night)"
-  ) +
-  scale_y_continuous(
-    labels = scales::label_dollar()
   ) +
   theme_minimal()
 
@@ -276,17 +256,6 @@ plot_residual <- ggplot(
     yintercept = 0,
     linetype = "dashed",
     color = "red"
-  ) +
-  labs(
-    title = "Residuals versus Fitted Values",
-    x = "Fitted Price (USD per night)",
-    y = "Residuals (USD)"
-  ) +
-  scale_x_continuous(
-    labels = scales::label_dollar()
-  ) +
-  scale_y_continuous(
-    labels = scales::label_dollar()
   ) +
   theme_minimal()
 
