@@ -363,16 +363,6 @@ plot_sampling <- ggplot(
     ~ sample_size,
     ncol = 1
   ) +
-  labs(
-    title = "Sampling Distributions of Mean Nightly Prices",
-    subtitle = "1,000 random samples for each sample size",
-    x = "Sample Mean Price (USD per night)",
-    y = "Frequency",
-    caption = "Red dashed line represents the population mean."
-  ) +
-  scale_x_continuous(
-    labels = scales::label_dollar()
-  ) +
   theme_minimal()
 
 
